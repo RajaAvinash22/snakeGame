@@ -125,7 +125,7 @@ function draw(){
         clearInterval(game);
         setTimeout(function()
         {
-             alert("Your Game Over"); 
+             alert("Your Game Is Over..."); 
         }, 0);  
     }
     
@@ -136,7 +136,7 @@ function draw(){
     ctx.fillText(score,2*box,1.6*box);
 }
 
-// call draw function every 100 ms
+// call draw function every 200 ms
 
-let game = setInterval(draw,100);
+let game = setInterval(draw,200);
 
