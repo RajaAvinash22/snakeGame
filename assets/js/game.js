@@ -33,13 +33,16 @@ let food = {
 // create the score var
 
 let score = 0;
-
+//disabling arrow key scrolling
+window.addEventListener("keydown", function(event) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
+        event.preventDefault();
+    }
+}, false);
 //control the snake
-
-let d;
-
 document.addEventListener("keydown",direction);
-
+let d;
 function direction(event){
     let key = event.keyCode;
     if( key == 37 && d != "RIGHT"){
@@ -119,7 +122,11 @@ function draw(){
     // game over
     
     if(snakeX < box || snakeX > 17 * box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
-        clearInterval(game);   
+        clearInterval(game);
+        setTimeout(function()
+        {
+             alert("Your Game Over"); 
+        }, 0);  
     }
     
     snake.unshift(newHead);
